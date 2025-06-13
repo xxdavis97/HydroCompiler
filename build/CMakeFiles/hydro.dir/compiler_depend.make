@@ -696,8 +696,10 @@ CMakeFiles/hydro.dir/src/compiler/main.cpp.o: /Users/jared/Documents/Coding/C++/
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
   /Users/jared/Documents/Coding/C++/Compiler/HydroCompiler/src/compiler/Tokenizer/Token.h \
   /Users/jared/Documents/Coding/C++/Compiler/HydroCompiler/src/compiler/Tokenizer/TokenType.h \
-  /Users/jared/Documents/Coding/C++/Compiler/HydroCompiler/src/compiler/Tokenizer/Tokenizer.h
+  /Users/jared/Documents/Coding/C++/Compiler/HydroCompiler/src/compiler/Tokenizer/Tokenizer.hpp
 
+
+/Users/jared/Documents/Coding/C++/Compiler/HydroCompiler/src/compiler/Tokenizer/Tokenizer.hpp:
 
 /Users/jared/Documents/Coding/C++/Compiler/HydroCompiler/src/compiler/Tokenizer/TokenType.h:
 
@@ -850,8 +852,6 @@ CMakeFiles/hydro.dir/src/compiler/main.cpp.o: /Users/jared/Documents/Coding/C++/
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/wchar.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/version:
-
-/Users/jared/Documents/Coding/C++/Compiler/HydroCompiler/src/compiler/Tokenizer/Tokenizer.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_fd_set.h:
 

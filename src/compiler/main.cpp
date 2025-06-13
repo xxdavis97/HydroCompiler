@@ -2,7 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
-#include "Tokenizer/Tokenizer.h"
+#include "Tokenizer/Tokenizer.hpp"
 
 int main(int argc, char *argv[]) {
     if (argc != 2) {
@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
         std::cerr << "Correct usage: ./hydro <file.hy>" << std::endl;
         return EXIT_FAILURE;
     }
-
+ 
     // Reads the file as an fstream variable called input
     std::fstream input(argv[1], std::ios::in);
     if (!input.is_open()) {
@@ -22,7 +22,8 @@ int main(int argc, char *argv[]) {
     std::string contents = contents_stream.str();
     input.close();
 
-    std::vector<Token> tokens = tokenize(contents);
+    Tokenizer tokenizer(contents);
+    std::vector<Token> tokens = tokenizer.tokenize();
 
     std::cout << contents  << std::endl;
     return EXIT_SUCCESS;
