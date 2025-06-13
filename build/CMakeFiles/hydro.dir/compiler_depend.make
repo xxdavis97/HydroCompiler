@@ -694,6 +694,9 @@ CMakeFiles/hydro.dir/src/compiler/main.cpp.o: /Users/jared/Documents/Coding/C++/
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdarg.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
+  /Users/jared/Documents/Coding/C++/Compiler/HydroCompiler/src/compiler/Parser/ASMGenerator.hpp \
+  /Users/jared/Documents/Coding/C++/Compiler/HydroCompiler/src/compiler/Parser/Node.hpp \
+  /Users/jared/Documents/Coding/C++/Compiler/HydroCompiler/src/compiler/Parser/Parser.hpp \
   /Users/jared/Documents/Coding/C++/Compiler/HydroCompiler/src/compiler/Tokenizer/Token.h \
   /Users/jared/Documents/Coding/C++/Compiler/HydroCompiler/src/compiler/Tokenizer/TokenType.h \
   /Users/jared/Documents/Coding/C++/Compiler/HydroCompiler/src/compiler/Tokenizer/Tokenizer.hpp
@@ -704,6 +707,10 @@ CMakeFiles/hydro.dir/src/compiler/main.cpp.o: /Users/jared/Documents/Coding/C++/
 /Users/jared/Documents/Coding/C++/Compiler/HydroCompiler/src/compiler/Tokenizer/TokenType.h:
 
 /Users/jared/Documents/Coding/C++/Compiler/HydroCompiler/src/compiler/Tokenizer/Token.h:
+
+/Users/jared/Documents/Coding/C++/Compiler/HydroCompiler/src/compiler/Parser/Node.hpp:
+
+/Users/jared/Documents/Coding/C++/Compiler/HydroCompiler/src/compiler/Parser/ASMGenerator.hpp:
 
 /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stddef.h:
 
@@ -1340,6 +1347,8 @@ CMakeFiles/hydro.dir/src/compiler/main.cpp.o: /Users/jared/Documents/Coding/C++/
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/unreachable_sentinel.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/functional.h:
+
+/Users/jared/Documents/Coding/C++/Compiler/HydroCompiler/src/compiler/Parser/Parser.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/reverse_access.h:
 
