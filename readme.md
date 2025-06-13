@@ -1,4 +1,6 @@
-Followed along this tutorial: https://www.youtube.com/watch?v=vcSijrRsrY0&list=PLUDlas_Zy_qC7c5tCgTMYq2idyyT241qs
+This is me learning how to build a compiler and also along the way learning C++, so may see some comments in the C++ code explaining what things do for myself to reference
+
+Followed along this tutorial series: https://www.youtube.com/watch?v=vcSijrRsrY0&list=PLUDlas_Zy_qC7c5tCgTMYq2idyyT241qs
 
 After finishing the lessons continued to expand the code
 

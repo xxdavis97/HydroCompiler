@@ -11,7 +11,7 @@ class Tokenizer {
         // inline function to optimize for execution performance
         // initializer list  
         inline explicit Tokenizer(std::string &sourceCode ) 
-            : m_sourceCode(std::move(sourceCode)), m_index(0) // move takes pointer and passes pointer to the new variable, preventing copies
+            : m_sourceCode(std::move(sourceCode)) // move takes pointer and passes pointer to the new variable, preventing copies
         {
         };
 
@@ -19,11 +19,10 @@ class Tokenizer {
          * @brief tokenize the member source code
          * @return vector of tokens given the string source code
          */
-        std::vector<Token> tokenize( ) {
+        inline std::vector<Token> tokenize( ) {
             std::vector<Token> tokens {};
             std::string buf = "";
             while (peek().has_value()) {
-                std::cout << m_index  << std::endl;
                 // ignore whitespace
                 if (std::isspace(peek().value())) {
                     consume();
@@ -61,16 +60,13 @@ class Tokenizer {
         };
 
     private:
-        const std::string m_sourceCode;
-        int m_index;
-
         // warning if don't use the return value with nodiscard
         /**
          * @brief peeks at character "ahead" away in source code
          * @param ahead: number of characters to peek ahead
          * @return character at index m_index + ahead
          */
-        [[nodiscard]] std::optional<char> peek(int ahead = 0) const {
+        [[nodiscard]] inline std::optional<char> peek(int ahead = 0) const {
             if (m_index + ahead >= m_sourceCode.length()) {
                 return {};
             }
@@ -81,7 +77,7 @@ class Tokenizer {
          * @brief returns the character at our member index and increments the index, this effectively consumes the variable
          * @return value at current index
          */
-        char consume() {
+        inline char consume() {
             return m_sourceCode.at(m_index++);
         };
 
@@ -90,7 +86,7 @@ class Tokenizer {
          * @param &buf: buffer to tokenize and clear
          * @param &tokens: vector to add token to 
          */
-        void tokenFromBuffer(std::string &buf, std::vector<Token> &tokens) {
+        inline void tokenFromBuffer(std::string &buf, std::vector<Token> &tokens) {
             Token token = bufToToken(buf);
             tokens.push_back(token);
             buf.clear();
@@ -125,4 +121,7 @@ class Tokenizer {
                 std::cout << std::format("Type: {} Value: {}", static_cast<int>(t.type), t.value.value_or("")) << std::endl;
             }
         };
+
+        const std::string m_sourceCode;
+        size_t m_index = 0;
 };
