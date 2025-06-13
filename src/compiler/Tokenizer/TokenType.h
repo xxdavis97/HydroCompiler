@@ -1,5 +1,5 @@
 enum class TokenType {
-    _return,
+    exit,
     int_lit,
     doub,
     semi   
