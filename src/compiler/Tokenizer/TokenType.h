@@ -2,5 +2,7 @@ enum class TokenType {
     exit,
     int_lit,
     doub,
-    semi   
+    semi,
+    open_paren,
+    close_paren
 };

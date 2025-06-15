@@ -3,6 +3,7 @@
 #include <sstream>
 #include <vector>
 #include "Tokenizer/Tokenizer.hpp"
+#include "Tokenizer/ParenVerifier.hpp"
 #include "Parser/Parser.hpp"
 #include "Parser/ASMGenerator.hpp"
 

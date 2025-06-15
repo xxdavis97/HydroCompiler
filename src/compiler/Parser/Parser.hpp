@@ -22,7 +22,12 @@ class Parser {
         std::optional<Node::Exit> parse() {
             std::optional<Node::Exit> exit_node;
             while(peek().has_value()) {
-                if (peek().value().type == TokenType::exit) {
+                if (peek().value().type == TokenType::exit 
+                        && peek(1).has_value() && peek(1).value().type == TokenType::open_paren) {
+                    //todo: the parens with exit should just be treated like a function and be more broad
+                    // Consume exit
+                    consume();
+                    // Consume open paren
                     consume();
                     // auto allows to deduce type from initializer therefore it will implicitly 
                     // convert node expression to boolean which for an optional returns true if optional
@@ -34,8 +39,14 @@ class Parser {
                     }   else {
                         exit(EXIT_FAILURE);
                     }
+                    if (peek().has_value() && peek().value().type == TokenType::close_paren) {
+                        consume();
+                    } else {
+                        std::cerr << "Expected close paren" << std::endl;
+                        exit(EXIT_FAILURE);
+                    }
                     if (!peek().has_value() || peek().value().type != TokenType::semi) {
-                        std::cerr << "Invalid expression" << std::endl;
+                        std::cerr << "Expected semi colon" << std::endl;
                         exit(EXIT_FAILURE);
                     }
                     consume();
@@ -49,15 +60,15 @@ class Parser {
     private:
 
         /**
-         * @brief peeks at character "ahead" away in source code
-         * @param ahead: number of characters to peek ahead
-         * @return character at index m_index + ahead
+         * @brief peeks at character "offset" away in source code
+         * @param offset: number of characters to peek ahead
+         * @return character at index m_index + offset
          */
-        [[nodiscard]] inline std::optional<Token> peek(int ahead = 0) const {
-            if (m_index + ahead >= m_tokens.size()) {
+        [[nodiscard]] inline std::optional<Token> peek(int offset = 0) const {
+            if (m_index + offset >= m_tokens.size()) {
                 return {};
             }
-            return m_tokens.at(m_index + ahead);
+            return m_tokens.at(m_index + offset);
         };
 
         /**

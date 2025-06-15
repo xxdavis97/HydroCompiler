@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include <format>
 #include "Token.h"
+#include "ParenVerifier.hpp"
 
 class Tokenizer {
     public:
@@ -22,6 +23,10 @@ class Tokenizer {
         inline std::vector<Token> tokenize( ) {
             std::vector<Token> tokens {};
             std::string buf = "";
+            ParenVerifier ParenVerifier(m_sourceCode);
+            if (!ParenVerifier.verify()) {
+                throw std::invalid_argument( "Parens, square brackets and/or curly braces not properly closed" );
+            }
             while (peek().has_value()) {
                 // ignore whitespace
                 if (std::isspace(peek().value())) {
@@ -48,7 +53,8 @@ class Tokenizer {
                             buf.push_back(consume());
                     }
                     tokenFromBuffer(buf, tokens);
-                } else if (peek().value() == ';') {
+                } else if (peek().value() == ';' || peek().value() == '('
+                            || peek().value() == ')') {
                     buf.push_back(consume());
                     tokenFromBuffer(buf, tokens);
                 } else {
@@ -63,14 +69,14 @@ class Tokenizer {
         // warning if don't use the return value with nodiscard
         /**
          * @brief peeks at character "ahead" away in source code
-         * @param ahead: number of characters to peek ahead
-         * @return character at index m_index + ahead
+         * @param offset: number of characters to peek ahead
+         * @return character at index m_index + offset
          */
-        [[nodiscard]] inline std::optional<char> peek(int ahead = 0) const {
-            if (m_index + ahead >= m_sourceCode.length()) {
+        [[nodiscard]] inline std::optional<char> peek(int offset = 0) const {
+            if (m_index + offset >= m_sourceCode.length()) {
                 return {};
             }
-            return m_sourceCode.at(m_index + ahead);
+            return m_sourceCode.at(m_index + offset);
         };
 
         /**
@@ -102,6 +108,12 @@ class Tokenizer {
             }
             if (buf == ";") {
                 return {.type = TokenType::semi};
+            }
+            if (buf == "(") {
+                return {.type = TokenType::open_paren};
+            }
+            if (buf == ")") {
+                return {.type = TokenType::close_paren};
             }
             if (buf.length() > 0 && std::isdigit(buf[0])) {
                 if (buf.contains('.')) {
